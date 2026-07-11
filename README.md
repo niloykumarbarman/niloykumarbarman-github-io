@@ -181,7 +181,7 @@ npm run start
 | `NEXT_PUBLIC_ENABLE_SEARCH` | Enable global search functionality | No | `true` |
 | `NEXT_PUBLIC_ENABLE_FILTER` | Enable filter functionality | No | `true` |
 | `NEXT_PUBLIC_PAGECLIP_API_KEY` | Contact form service key | No | - |
-| `NEXT_PUBLIC_API_BASE_URL` | Portfolio admin API URL for blog posts | No | `https://portfolio-admin-blue.vercel.app` |
+| `NEXT_PUBLIC_API_BASE_URL` | Portfolio admin API URL for blog posts | No | `https://portfolio-admin-eta-ruby.vercel.app` |
 | `NEXT_PUBLIC_CHATBOT_API_URL` | AI chatbot API endpoint | No | - |
 
 ## 📦 Deployment
