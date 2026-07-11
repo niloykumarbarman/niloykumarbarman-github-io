@@ -27,6 +27,7 @@ interface TimelineItem {
   url?: string; // V2: Optional in API
   jobType: string[];
   responsibilities: string[];
+  technologies?: string[];
 }
 
 interface TimelineElementProps {
@@ -258,6 +259,20 @@ const TimelineElement: React.FC<TimelineElementProps> = ({
             ))}
           </ul>
         </div>
+
+        {/* Technologies Section */}
+        {item.technologies && item.technologies.length > 0 && (
+          <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-white/10">
+            {item.technologies.map((tech, techIndex) => (
+              <span
+                key={techIndex}
+                className="inline-flex items-center justify-center h-6 text-[11px] px-2.5 rounded-md font-medium bg-white/5 border border-white/10 text-white/70"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </motion.article>
   );
