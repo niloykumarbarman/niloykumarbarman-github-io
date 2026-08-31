@@ -162,9 +162,9 @@ const TimelineElement: React.FC<TimelineElementProps> = ({
             <span className="h-7 text-white/30 text-xs inline-flex items-center justify-center">|</span>
 
             {/* Location Badge - V2: Shows address if available, fallback to location - Contextual colors */}
-            <div className="inline-flex items-center justify-center h-7 gap-1.5 text-white/70 text-xs bg-white/5 backdrop-blur-sm border border-white/10 px-3 rounded-full hover:bg-white/10 transition-all duration-300">
-              <FaMapMarkedAlt className={`text-[10px] ${isFeatured ? 'text-purple-400' : 'text-secondary-default'}`} />
-              {item.address || item.location}
+            <div className="inline-flex items-center h-7 gap-1.5 text-white/70 text-xs bg-white/5 backdrop-blur-sm border border-white/10 px-3 rounded-full hover:bg-white/10 transition-all duration-300 max-w-[220px] lg:max-w-[320px]">
+              <FaMapMarkedAlt className={`text-[10px] flex-shrink-0 ${isFeatured ? 'text-purple-400' : 'text-secondary-default'}`} />
+              <span className="truncate" title={item.address || item.location}>{item.address || item.location}</span>
             </div>
           </div>
         </div>
@@ -194,8 +194,8 @@ const TimelineElement: React.FC<TimelineElementProps> = ({
             </div>
           </div>
 
-          {/* Row 2: Job Types + Separator + Location - All in one row */}
-          <div className="flex items-center gap-2">
+          {/* Row 2: Job Types + Separator + Location - Wraps on narrow screens */}
+          <div className="flex flex-wrap items-center gap-2">
             {/* Job Type Badges */}
             {(item?.jobType ?? []).map((type, typeIndex) => (
               <span
@@ -210,12 +210,14 @@ const TimelineElement: React.FC<TimelineElementProps> = ({
             ))}
 
             {/* Separator */}
-            <span className="h-7 text-white/30 text-xs inline-flex items-center justify-center flex-shrink-0">|</span>
+            {(item?.jobType?.length ?? 0) > 0 && (
+              <span className="h-7 text-white/30 text-xs inline-flex items-center justify-center flex-shrink-0">|</span>
+            )}
 
             {/* Location - V2: Shows address if available, fallback to location - Contextual colors */}
-            <div className="inline-flex items-center justify-center h-7 gap-1 text-white/70 text-[10px] bg-white/5 backdrop-blur-sm border border-white/10 px-2 rounded-full flex-shrink-0">
-              <FaMapMarkedAlt className={`text-[9px] ${isFeatured ? 'text-purple-400' : 'text-secondary-default'}`} />
-              {item.address || item.location}
+            <div className="inline-flex items-center gap-1 min-w-0 max-w-full text-white/70 text-[10px] bg-white/5 backdrop-blur-sm border border-white/10 px-2 py-1 rounded-2xl">
+              <FaMapMarkedAlt className={`text-[9px] flex-shrink-0 ${isFeatured ? 'text-purple-400' : 'text-secondary-default'}`} />
+              <span className="break-words">{item.address || item.location}</span>
             </div>
           </div>
         </div>
