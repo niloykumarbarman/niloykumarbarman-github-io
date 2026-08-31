@@ -103,8 +103,9 @@ Content is **API-driven** at build time (SSG). The deployed `portfolio-admin` pa
 
 **Local-only files in `data/`:**
 - `navigationData.ts` — site navigation structure (static)
-- `schemaData.ts` — structured data for SEO (static)
 - `localProjects.ts` — local project fallback (see above)
+
+Structured data (Person/WebSite/Organization schemas) lives in `components/StructuredData.tsx`, rendered from `app/layout.tsx`.
 
 ### Component Architecture
 - **UI Components**: Shadcn/ui based components in `components/ui/`
